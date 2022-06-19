@@ -1,3 +1,59 @@
 <div class="main">
-    Jobs List in 
+    <div *ngIf="empty">
+        <h2>No Job found.</h2>
+        <button mat-raised-button color="primary">Create Job</button>
+      </div>
+
+      <div *ngIf="!empty">
+        <h2>List of Jobs <button mat-raised-button color="primary">Add Job</button></h2>
+        <div class="mat-elevation-z8" style="overflow: auto;">
+            <table mat-table [dataSource]="jobList">
+        
+            <!-- Title Column -->
+            <ng-container matColumnDef="Title">
+                <th mat-header-cell *matHeaderCellDef> Title </th>
+                <td mat-cell *matCellDef="let element"> {{element.title}} </td>
+            </ng-container>
+        
+            <!-- Role Column -->
+            <ng-container matColumnDef="Role">
+                <th mat-header-cell *matHeaderCellDef> Role </th>
+                <td mat-cell *matCellDef="let element"> {{element.role}} </td>
+            </ng-container>
+        
+            <!-- Skill Column -->
+            <ng-container matColumnDef="Skill">
+                <th mat-header-cell *matHeaderCellDef> Skill </th>
+                <td mat-cell *matCellDef="let element"> {{element.skill}} </td>
+            </ng-container>
+        
+            <!-- Expire date Column -->
+            <ng-container matColumnDef="Expire Date">
+                <th mat-header-cell *matHeaderCellDef> Expire Date </th>
+                <td mat-cell *matCellDef="let element"> {{element.final_date | date}} </td>
+            </ng-container>
+
+            <!-- Options Column -->
+            <ng-container matColumnDef="Options">
+                <th mat-header-cell *matHeaderCellDef>Options</th>
+                <td mat-cell *matCellDef="let row">
+                  <button mat-icon-button (click)="onEdit(row)">
+                    <mat-icon>visibility</mat-icon>
+                  </button>
+                  <button mat-icon-button (click)="onEdit(row)">
+                    <mat-icon>edit</mat-icon>
+                  </button>
+                  <button mat-icon-button color="warn"(click)="onDelete(row.departmentId)">
+                      <mat-icon>delete_outline</mat-icon>
+                    </button>
+                </td>
+              </ng-container>
+        
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+        
+            <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+        </div>  
+    </div>
 </div>
