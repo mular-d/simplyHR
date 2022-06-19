@@ -1,0 +1,46 @@
+<mat-sidenav-container autosize>
+    <mat-sidenav #sidenav mode="side" opened="isExpanded">
+      <mat-nav-list>
+  
+        <mat-list-item (click)="isExpanded = !isExpanded">
+          <mat-icon mat-list-icon class="chevron-button" [ngClass]="{ rotated: isExpanded }">chevron_right
+          </mat-icon>
+        </mat-list-item>
+  
+        <mat-list-item routerLink="/dashboard" routerLinkActive="active">
+          <mat-icon mat-list-icon>dashboard</mat-icon>
+          <span *ngIf="isExpanded" class="menu-item">Dashboard</span>
+        </mat-list-item>
+
+        <mat-list-item routerLink="/departments" routerLinkActive="active">
+            <mat-icon mat-list-icon>corporate_fare</mat-icon>
+            <span *ngIf="isExpanded" class="menu-item">Departments</span>
+          </mat-list-item>
+  
+        <mat-list-item routerLink="/jobs" routerLinkActive="active">
+          <mat-icon mat-list-icon>work_outline</mat-icon>
+          <span *ngIf="isExpanded" class="menu-item">Jobs</span>
+        </mat-list-item>
+  
+        <mat-list-item routerLink="/employees" routerLinkActive="active">
+          <mat-icon mat-list-icon>groups</mat-icon>
+          <span *ngIf="isExpanded" class="menu-item">Employees</span>
+        </mat-list-item>
+
+        <mat-list-item routerLink="/candidates" routerLinkActive="active">
+            <mat-icon mat-list-icon>group_add</mat-icon>
+            <span *ngIf="isExpanded" class="menu-item">Candidates</span>
+          </mat-list-item>
+  
+      </mat-nav-list>
+    </mat-sidenav>
+  
+    <!-- Content - rendered Content for the current router path into the <router-outlet>, e.g. /dashboard or /info-->
+    <mat-sidenav-content>
+      <mat-toolbar routerLink="/dashboard">
+        <mat-icon>assessment</mat-icon><h4>simplyHR</h4>
+      </mat-toolbar>
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  
+  </mat-sidenav-container>
