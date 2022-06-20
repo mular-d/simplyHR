@@ -1,0 +1,61 @@
+<div class="top">
+    <h4>Update Employee</h4>
+
+    <button mat-button (click)="onClose()">
+        <mat-icon>close</mat-icon>
+    </button>
+</div>
+
+<form #form="ngForm" (submit)="onSubmit(form)" class="form-data">
+  
+    <input hidden name="id" #id="ngModel" [(ngModel)]="service.formData.id">
+
+    <mat-form-field class="form-full-width">
+        <input 
+            matInput 
+            placeholder="Employee Name"
+            name="name"
+            required
+            #name="ngModel"
+            [(ngModel)]="service.formData.name">
+    </mat-form-field>
+
+    <mat-form-field class="form-full-width">
+        <input 
+            matInput 
+            placeholder="Email Address"
+            [formControl]="emailFormControl"
+            name="email_address"
+            required
+            [(ngModel)]="service.formData.email_address">
+        <mat-error *ngIf="emailFormControl.hasError('email')">
+            Please enter a valid email address
+        </mat-error>
+        <mat-error *ngIf="emailFormControl.hasError('required')">
+            Email is <strong>required</strong>
+        </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="form-full-width">
+        <mat-label>Department</mat-label>
+        <mat-select #id="ngModel" name="deptId" required [(ngModel)]="service.formData.department.id">
+            <mat-option *ngFor="let dl of deptListItems" [value]="dl.id">
+            {{dl.name}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="form-full-width">
+        <input
+            matInput
+            placeholder="Date of Join"
+            name="doj"
+            required
+            #doj="ngModel"
+            [(ngModel)]="service.formData.doj">
+      </mat-form-field>
+  
+    <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid || emailFormControl.errors">
+        Update Employee
+    </button>
+  </form>

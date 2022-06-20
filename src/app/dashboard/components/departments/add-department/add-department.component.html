@@ -1,0 +1,46 @@
+<div class="top">
+    <h4>Add new Department</h4>
+
+    <button mat-button (click)="onClose()">
+        <mat-icon>close</mat-icon>
+    </button>
+</div>
+
+<form #form="ngForm" (submit)="onSubmit(form)" class="form-data">
+  
+    <input hidden name="id" #id="ngModel" [(ngModel)]="service.formData.company.id">
+
+    <mat-form-field class="form-full-width">
+        <input 
+            matInput 
+            placeholder="Department Title"
+            name="name"
+            required
+            #name="ngModel"
+            [(ngModel)]="service.formData.name">
+    </mat-form-field>
+
+    <mat-form-field class="form-full-width">
+        <input 
+            matInput 
+            placeholder="Description"
+            name="description"
+            required
+            #description="ngModel"
+            [(ngModel)]="service.formData.description">
+    </mat-form-field>
+
+    <mat-form-field class="form-full-width">
+        <input
+            matInput
+            placeholder="Location"
+            name="location"
+            required
+            #location="ngModel"
+            [(ngModel)]="service.formData.location">
+      </mat-form-field>
+  
+    <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid">
+        Add Department
+    </button>
+  </form>

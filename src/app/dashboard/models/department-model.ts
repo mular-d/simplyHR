@@ -5,6 +5,6 @@ export class Department {
     description: string;
     location: string;
     company: {
-        name: string
+        id: string
     };
 }

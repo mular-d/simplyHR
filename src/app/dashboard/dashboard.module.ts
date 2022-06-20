@@ -1,3 +1,8 @@
+import { EditEmployeeComponent } from './components/employees/edit-employee/edit-employee.component';
+import { AddEmployeeComponent } from './components/employees/add-employee/add-employee.component';
+import { EditDepartmentComponent } from './components/departments/edit-department/edit-department.component';
+import { AddDepartmentComponent } from './components/departments/add-department/add-department.component';
+
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
@@ -20,9 +25,10 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatButtonModule, MatPaginatorModule, MatTableModule } from '@angular/material';
+import { MatButtonModule, MatDialogModule, MatFormFieldModule, MatInputModule, MatPaginatorModule, MatSelectModule, MatSnackBarModule, MatTableModule } from '@angular/material';
 
 import { NavbarWrapperComponent } from './navbar/navbar-wrapper/navbar-wrapper.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -34,12 +40,18 @@ import { NavbarWrapperComponent } from './navbar/navbar-wrapper/navbar-wrapper.c
     EmployeesComponent, 
     EmployeesComponent, 
     DepartmentsComponent, 
-    CandidatesComponent
+    CandidatesComponent,
+    AddDepartmentComponent,
+    EditDepartmentComponent,
+    AddEmployeeComponent,
+    EditEmployeeComponent
   ],
   imports: [
     DashboardRoutingModule,
     CommonModule,
     HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
 
     // NG Material Modules
     MatSidenavModule,
@@ -48,13 +60,24 @@ import { NavbarWrapperComponent } from './navbar/navbar-wrapper/navbar-wrapper.c
     MatToolbarModule,
     MatTableModule,
     MatPaginatorModule,
-    MatButtonModule
+    MatButtonModule,
+    MatDialogModule,
+    MatInputModule,
+    MatSnackBarModule,
+    MatFormFieldModule,
+    MatSelectModule,
   ],
   providers: [
     JobService,
     DepartmentService,
     CandidateService,
     EmployeeService
+  ],
+  entryComponents: [
+    AddDepartmentComponent, 
+    EditDepartmentComponent, 
+    AddEmployeeComponent, 
+    EditEmployeeComponent
   ]
 })
 export class DashboardModule { }

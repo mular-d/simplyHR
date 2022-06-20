@@ -1,10 +1,11 @@
 
 export class Employee {
+    id: string;
     name: string;
     email_address: string;
     doj: Date;
-    departmentId: string;
     department: {
+        id: string;
         name: string
     }
 }

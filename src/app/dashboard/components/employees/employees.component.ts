@@ -1,3 +1,6 @@
+import { EditEmployeeComponent } from './edit-employee/edit-employee.component';
+import { AddEmployeeComponent } from './add-employee/add-employee.component';
+import { MatSnackBar, MatDialog, MatDialogConfig } from '@angular/material';
 import { EmployeeService } from './../../services/employee-service';
 import { Employee } from './../../models/employee-model';
 import { Component, OnInit, ViewChild } from '@angular/core';
@@ -21,7 +24,14 @@ export class EmployeesComponent implements OnInit {
     this.refreashEmpList()
   }
 
-  constructor(private service: EmployeeService) {}
+  constructor(
+    private service: EmployeeService,
+    private snackBar: MatSnackBar,
+    private dialog: MatDialog ) {
+      this.service.listen().subscribe((m: any) => {
+        this.refreashEmpList();
+      })
+    }
 
   refreashEmpList() {
     this.service.getEmployeesList().subscribe(data => {
@@ -32,11 +42,31 @@ export class EmployeesComponent implements OnInit {
     })
   }
 
+  onAdd() {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = false;
+    dialogConfig.autoFocus = true;
+    dialogConfig.width = "60%";
+    this.dialog.open(AddEmployeeComponent, dialogConfig);
+  }
+
   onEdit(row: Employee) {
-    console.log(row)
+    this.service.formData = row;
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = false;
+    dialogConfig.autoFocus = true;
+    dialogConfig.width = "60%"
+    this.dialog.open(EditEmployeeComponent, dialogConfig)
   }
 
   onDelete(id: string) {
-    console.log(id)
+    if (confirm('Are you sure to delete?')) {
+      this.service.deleteEmployee(id).subscribe(res => {
+        this.refreashEmpList();
+        this.snackBar.open("Employee Deleted Successfully.", '', {
+          duration: 3000
+        })
+      })
+    }
   }
 }

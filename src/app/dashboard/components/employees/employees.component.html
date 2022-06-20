@@ -1,10 +1,10 @@
 <div class="main">
     <div *ngIf="empty">
         <h2>No Employee found.</h2>
-        <button mat-raised-button color="primary">Create Employee</button>
+        <button mat-raised-button color="primary" (click)="onAdd()">Create Employee</button>
       </div>
       <div *ngIf="!empty">
-          <h2>List of Employee's<button mat-raised-button color="primary">Add Employee</button></h2>
+          <h2>List of Employee's<button mat-raised-button color="primary" (click)="onAdd()" >Add Employee</button></h2>
         <div class="mat-elevation-z8" style="overflow: auto;">
             <table mat-table [dataSource]="empList">
         
