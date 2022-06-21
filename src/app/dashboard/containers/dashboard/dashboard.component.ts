@@ -1,3 +1,4 @@
+import { DashBoardService } from './../../services/dashboard-service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,10 +7,24 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
+  dataList: Array<number>[]
+  loaded: boolean = false
 
-  constructor() { }
+  constructor(
+    private service: DashBoardService,
+  ) { 
+    this.refreashData()
+  }
 
   ngOnInit() {
+    this.refreashData();
+  }
+
+  refreashData() {
+    this.service.getData().subscribe(res => {
+      this.dataList = res
+      this.loaded = true
+    })
   }
 
 }

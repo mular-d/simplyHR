@@ -26,10 +26,11 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatButtonModule, MatDialogModule, MatFormFieldModule, MatInputModule, MatPaginatorModule, MatSelectModule, MatSnackBarModule, MatTableModule, MatTooltipModule } from '@angular/material';
+import { MatButtonModule, MatCardModule, MatDialogModule, MatFormFieldModule, MatInputModule, MatPaginatorModule, MatSelectModule, MatSnackBarModule, MatTableModule, MatTooltipModule } from '@angular/material';
 
 import { NavbarWrapperComponent } from './navbar/navbar-wrapper/navbar-wrapper.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { DashBoardService } from './services/dashboard-service';
 
 @NgModule({
   declarations: [
@@ -69,13 +70,15 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MatSnackBarModule,
     MatFormFieldModule,
     MatSelectModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatCardModule
   ],
   providers: [
     JobService,
     DepartmentService,
     CandidateService,
-    EmployeeService
+    EmployeeService,
+    DashBoardService
   ],
   entryComponents: [
     AddDepartmentComponent, 

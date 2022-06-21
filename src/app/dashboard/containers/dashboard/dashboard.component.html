@@ -1,3 +1,35 @@
+
 <div class="main">
-    Dashboard List
+    <mat-card class="example-card">
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image"><mat-icon>person_add</mat-icon></div>
+          <mat-card-title>New Candidates</mat-card-title>
+          <mat-card-subtitle *ngIf="loaded">{{ dataList[0] }}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-actions>
+          <button mat-raised-button routerLink="/candidates" color="primary">Open</button>
+        </mat-card-actions>
+    </mat-card>
+
+    <mat-card class="example-card">
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image"><mat-icon>work_outline</mat-icon></div>
+          <mat-card-title>All Jobs</mat-card-title>
+          <mat-card-subtitle *ngIf="loaded">{{ dataList[1] }}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-actions>
+          <button mat-raised-button routerLink="/jobs" color="primary">Open</button>
+        </mat-card-actions>
+    </mat-card>
+
+    <mat-card class="example-card">
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image"><mat-icon>groups</mat-icon></div>
+          <mat-card-title>All Employee's</mat-card-title>
+          <mat-card-subtitle *ngIf="loaded">{{ dataList[2] }}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-actions>
+          <button mat-raised-button routerLink="/employees" color="primary">Open</button>
+        </mat-card-actions>
+    </mat-card>
 </div>
