@@ -13,7 +13,7 @@ import { NavbarWrapperComponent } from './navbar/navbar-wrapper/navbar-wrapper.c
 
 const routes: Routes = [
   {
-    path: 'job/:id',
+    path: 'job',
     component: JobFormComponent,
   },
   
