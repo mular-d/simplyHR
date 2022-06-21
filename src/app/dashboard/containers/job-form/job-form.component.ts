@@ -38,11 +38,12 @@ export class JobFormComponent implements OnInit {
   }
 
   getJobInfo() {
-    // this.route.params.subscribe((params: Params) => {
-    //   this.jobId = params.id;
-    // })
+    this.route.params.subscribe((params: Params) => {
+      this.jobId = params.id;
+      console.log(this.jobId)
+    })
 
-    this.jobId = this.route.snapshot.queryParamMap.get('id');
+    // this.jobId = this.route.snapshot.queryParamMap.get('id');
 
     this.jobService.getSingleJob(this.jobId).subscribe(data => {
       this.job = data[0]
