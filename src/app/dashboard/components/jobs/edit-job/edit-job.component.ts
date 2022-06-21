@@ -1,7 +1,7 @@
+import { JobService } from './../../../services/job-service';
 import { Component, OnInit } from "@angular/core";
 import { MatDialogRef, MatSnackBar } from "@angular/material";
-import { FormControl, NgForm, Validators } from '@angular/forms';
-import { EmployeeService } from 'src/app/dashboard/services/employee-service';
+import { NgForm } from '@angular/forms';
 
 interface dropDown {
   id: string;
@@ -10,20 +10,16 @@ interface dropDown {
 
 @Component({
     selector: 'edit-employee',
-    templateUrl: './edit-employee.component.html',
-    styleUrls: ['./edit-employee.component.scss']
+    templateUrl: './edit-job.component.html',
+    styleUrls: ['./edit-job.component.scss']
   })
-export class EditEmployeeComponent implements OnInit{
+export class EditJobComponent implements OnInit{
   public deptListItems: Array<dropDown> = [];
-  emailFormControl = new FormControl('', [
-    Validators.required,
-    Validators.email
-  ])
 
   constructor(
-    public dialogbox: MatDialogRef<EditEmployeeComponent>,
+    public dialogbox: MatDialogRef<EditJobComponent>,
     private _snackBar: MatSnackBar,
-    public service: EmployeeService) {}
+    public service: JobService) {}
 
   ngOnInit() {
     this.dropdownRefreash()
@@ -47,10 +43,15 @@ export class EditEmployeeComponent implements OnInit{
   }
 
   onSubmit(form: NgForm) {
-    this.service.updateEmployee(form.value).subscribe(res => {
-      this._snackBar.open('Employee updated Successfully.', '', {
+    this.service.updateJob(form.value).subscribe(res => {
+      this._snackBar.open('Job updated Successfully.', '', {
         duration: 3000
       })
+    }, error => {
+        error = error.error.error;
+        this._snackBar.open(error, '', {
+          duration: 3000
+        })
     })
   }
 }

@@ -1,4 +1,4 @@
-import { EmployeeService } from './../../../services/employee-service';
+import { JobService } from './../../../services/job-service';
 import { Component, OnInit } from "@angular/core";
 import { MatDialogRef, MatSnackBar } from "@angular/material";
 import { NgForm } from '@angular/forms';
@@ -10,17 +10,17 @@ interface dropDown {
 
 @Component({
     selector: 'add-department',
-    templateUrl: './add-employee.component.html',
-    styleUrls: ['./add-employee.component.scss']
+    templateUrl: './add-job.component.html',
+    styleUrls: ['./add-job.component.scss']
   })
-export class AddEmployeeComponent implements OnInit{
+export class AddJobComponent implements OnInit{
 
   public deptListItems: Array<dropDown> = []
 
   constructor(
-    public dialogbox: MatDialogRef<AddEmployeeComponent>,
+    public dialogbox: MatDialogRef<AddJobComponent>,
     private _snackBar: MatSnackBar,
-    public service: EmployeeService) {}
+    public service: JobService) {}
 
   ngOnInit() {
     this.resetForm();
@@ -43,13 +43,15 @@ export class AddEmployeeComponent implements OnInit{
       form.resetForm();
     this.service.formData = {
       id: '',
-      name: '',
-      email_address: '',
-      doj: new Date,
-      deptId: '',
+      title: '',
+      role: '',
+      description: '',
+      skill: '',
+      salary: 0,
+      final_date: new Date,
       department: {
-        id: '',
-        name: ''
+          id: '',
+          name: ''
       }
     } 
   }
@@ -60,9 +62,9 @@ export class AddEmployeeComponent implements OnInit{
   }
 
   onSubmit(form: NgForm) {
-    this.service.addEmployee(form.value).subscribe(res => {
+    this.service.addJob(form.value).subscribe(res => {
       this.resetForm(form)
-      this._snackBar.open('Employee added Successfully.', '', {
+      this._snackBar.open('Job added Successfully.', '', {
         duration: 3000
       })
     }, error => {

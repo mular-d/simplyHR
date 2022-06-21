@@ -38,7 +38,7 @@
 
     <mat-form-field class="form-full-width">
         <mat-label>Department</mat-label>
-        <mat-select #id="ngModel" name="deptId" required [(ngModel)]="service.formData.department.id">
+        <mat-select #deptId="ngModel" name="deptId" required [(ngModel)]="service.formData.department.id">
             <mat-option *ngFor="let dl of deptListItems" [value]="dl.id">
             {{dl.name}}
             </mat-option>

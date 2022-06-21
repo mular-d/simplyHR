@@ -8,7 +8,7 @@
 
 <form #form="ngForm" (submit)="onSubmit(form)" class="form-data">
   
-    <input hidden name="id" #id="ngModel" [(ngModel)]="service.formData.department.id">
+    <input hidden name="deptId" #deptId="ngModel" [(ngModel)]="service.formData.department.id">
 
     <mat-form-field class="form-full-width">
         <input 

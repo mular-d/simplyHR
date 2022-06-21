@@ -48,7 +48,6 @@ export class DepartmentsComponent implements OnInit {
   }
 
   onEdit(dept: Department) {
-    console.log(dept.id)
     this.service.formData = dept;
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = true;

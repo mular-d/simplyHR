@@ -1,0 +1,63 @@
+<div *ngIf="!job">
+    <div class="container">
+      <img src="assets/404.gif" alt="not-found" srcset="">
+      <h2>Oh no, bad luck!</h2>
+      <h4>The job you’re looking for could have been <strong>expired</strong> or never have existed.</h4>
+    </div>
+</div>
+<div *ngIf="job">
+    <div class="job-details">
+        <div class="top"><h2>Job Details for position at {{ job.department.name }} department</h2></div>
+        <div class="content">
+            <h2>{{job.title}}</h2>
+            <p><strong>General Information: </strong></p>
+            <p><strong>About the job:</strong></p>
+            <p>{{job.description}}</p>
+            <p><strong>About the role: </strong></p>
+            <p>{{job.role}}</p>
+            <p>Skills required :- {{job.skill}}</p>
+            <p>Salary : {{job.salary}}</p>
+            <p>Deadline date -> <span style="color: red;">{{job.final_date | date }}</span></p>
+
+            <mat-divider class="material-divider"></mat-divider>
+
+            <form class="candidate-form" [formGroup]="candidateForm" (submit)="onAdd()" >
+                <input hidden name="id" value={{job.id}} formControlName="id">
+
+                <table class="form-full-width" cellspacing="0"><tr>
+                    <td><mat-form-field class="example-full-width">
+                      <input matInput formControlName="fname" placeholder="First name">
+                    </mat-form-field></td>
+                    <td><mat-form-field class="example-full-width">
+                      <input matInput formControlName="lname" placeholder="Last Name">
+                    </mat-form-field></td>
+                  </tr>
+                </table>
+
+                <table class="form-full-width" cellspacing="0"><tr>
+                    <td><mat-form-field class="example-full-width">
+                      <input matInput formControlName="email_address" placeholder="Email Address">
+                    </mat-form-field></td>
+                    <td><mat-form-field class="example-full-width">
+                      <input matInput formControlName="edu_level" placeholder="Education Level">
+                    </mat-form-field></td>
+                  </tr>
+                </table>
+
+                <table class="form-full-width" cellspacing="0"><tr>
+                    <td><mat-form-field class="example-full-width">
+                      <input matInput formControlName="city" placeholder="City">
+                    </mat-form-field></td>
+                    <td><mat-form-field class="example-full-width">
+                      <input matInput formControlName="region" placeholder="Region">
+                    </mat-form-field></td>
+                  </tr>
+                </table>
+
+                <button mat-raised-button color="primary" type="submit" [disabled]="candidateForm.invalid">
+                    Apply
+                </button>
+            </form>
+        </div>
+    </div>
+</div>

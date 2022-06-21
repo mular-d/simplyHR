@@ -1,0 +1,65 @@
+
+.container {
+    display: block;
+    text-align: center;
+}
+
+h4 {
+    color: #8492a6;
+    line-height: 34px;
+    font-size: 20px;
+    font-weight: 300;
+}
+
+.top h2 {
+    margin-top: 2rem;
+    color: rgb(62, 72, 84);
+}
+
+.mat-divider {
+    display: block;
+    margin: 0;
+    border-top-width: 2px;
+    border-top-style: solid;
+    border-top-color: red;
+ }
+
+.container img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 25%;
+}
+
+
+.job-details {
+    position: absolute;
+    top: 75%;
+    left: 50%;
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+}
+
+.top p {
+    padding-bottom: 2rem;
+}
+
+.content {
+    padding: 2rem;
+    box-shadow: 0px 0px 10px 10px rgba(0, 0, 0, 0.5);
+}
+
+.candidate-form {
+    min-width: 200px;
+    max-width: 500px;
+    width: 100%;
+}
+  
+.form-full-width {
+    width: 100%;
+}
+
+td {
+    padding-right: 8px;
+}

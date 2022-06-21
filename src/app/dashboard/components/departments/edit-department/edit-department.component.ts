@@ -24,7 +24,6 @@ export class EditDepartmentComponent implements OnInit{
   }
 
   onSubmit(form: NgForm) {
-    console.log(form.value)
     this.service.updateDepartment(form.value).subscribe(res => {
       this._snackBar.open('Department updated Successfully.', '', {
         duration: 3000

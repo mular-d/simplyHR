@@ -6,5 +6,8 @@ export class Job {
     skill: string;
     salary: number;
     final_date: Date;
-    departmentId: string;
+    department: {
+        id: string;
+        name: string
+    }
 }

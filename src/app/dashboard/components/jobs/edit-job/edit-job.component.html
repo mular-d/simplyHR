@@ -1,0 +1,86 @@
+<div class="top">
+    <h4>Update Job</h4>
+
+    <button mat-button (click)="onClose()">
+        <mat-icon>close</mat-icon>
+    </button>
+</div>
+
+<form #form="ngForm" (submit)="onSubmit(form)" class="form-data">
+  
+    <input hidden name="id" #id="ngModel" [(ngModel)]="service.formData.id">
+
+    <mat-form-field class="form-full-width">
+        <input
+            matInput 
+            placeholder="Job Title"
+            name="title"
+            required
+            #title="ngModel"
+            [(ngModel)]="service.formData.title" >
+    </mat-form-field>
+
+    <mat-form-field class="form-full-width">
+        <textarea 
+            matInput 
+            placeholder="Job Role"
+            name="role"
+            required
+            #role="ngModel"
+            [(ngModel)]="service.formData.role"></textarea>
+    </mat-form-field>
+
+    <mat-form-field class="form-full-width">
+        <textarea 
+            matInput 
+            placeholder="Job Description"
+            name="description"
+            required
+            #description="ngModel"
+            [(ngModel)]="service.formData.description"></textarea>
+    </mat-form-field>
+
+    <mat-form-field class="form-full-width">
+        <input 
+            matInput 
+            placeholder="Skills Required"
+            name="skill"
+            required
+            #skill="ngModel"
+            [(ngModel)]="service.formData.skill">
+    </mat-form-field>
+
+    <mat-form-field class="form-full-width">
+        <input 
+            matInput 
+            type="number"
+            placeholder="Salary"
+            name="salary"
+            required
+            #salary="ngModel"
+            [(ngModel)]="service.formData.salary">
+    </mat-form-field>
+
+    <mat-form-field class="form-full-width">
+        <input
+            matInput
+            placeholder="Closing Date"
+            name="final_date"
+            required
+            #final_date="ngModel"
+            [(ngModel)]="service.formData.final_date">
+      </mat-form-field>
+
+    <mat-form-field class="form-full-width">
+        <mat-label>Department</mat-label>
+        <mat-select deptId="ngModel" name="deptId" required [(ngModel)]="service.formData.department.id">
+            <mat-option *ngFor="let dl of deptListItems" [value]="dl.id">
+            {{dl.name}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid">
+        Update Employee
+    </button>
+  </form>

@@ -12,13 +12,17 @@ import { JobFormComponent } from './containers/job-form/job-form.component';
 import { NavbarWrapperComponent } from './navbar/navbar-wrapper/navbar-wrapper.component';
 
 const routes: Routes = [
+  {
+    path: 'job/:id',
+    component: JobFormComponent,
+  },
   
   {
     path: '',
     component: NavbarWrapperComponent,
     children: [
       {
-        path: 'dashboard',
+        path: '',
         component: DashboardComponent
       },
       {
@@ -36,16 +40,12 @@ const routes: Routes = [
       {
         path: 'candidates',
         component: CandidatesComponent
-      },
-      {
-        path: 'job/:id',
-        component: JobFormComponent
       }
-    ]
+    ],
   },
   {
     path: '**',
-    redirectTo: '/dashboard',
+    redirectTo: '/',
     pathMatch: 'full'
   }
 ];

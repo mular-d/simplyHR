@@ -1,5 +1,6 @@
 
 export class Candidate {
+    id: string;
     fname: string;
     lname: string;
     email_address: string;
@@ -7,6 +8,10 @@ export class Candidate {
     city: string;
     region: string;
     job: {
+        id: string;
         title: string;
+        department: {
+            id: string
+        }
     }
 }

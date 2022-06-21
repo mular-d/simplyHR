@@ -38,7 +38,6 @@ export class AddDepartmentComponent implements OnInit{
   }
 
   onSubmit(form: NgForm) {
-    console.log(form.value)
     this.service.addDepartment(form.value).subscribe(res => {
       this.resetForm(form)
       this._snackBar.open('Department added Successfully.', '', {
