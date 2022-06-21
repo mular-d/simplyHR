@@ -26,7 +26,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatButtonModule, MatCardModule, MatDialogModule, MatFormFieldModule, MatInputModule, MatPaginatorModule, MatSelectModule, MatSnackBarModule, MatTableModule, MatTooltipModule } from '@angular/material';
+import { MatButtonModule, MatCardModule, MatDatepickerModule, MatDialogModule, MatFormFieldModule, MatInputModule, MatNativeDateModule, MatPaginatorModule, MatSelectModule, MatSnackBarModule, MatTableModule, MatTooltipModule } from '@angular/material';
 
 import { NavbarWrapperComponent } from './navbar/navbar-wrapper/navbar-wrapper.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -71,7 +71,9 @@ import { DashBoardService } from './services/dashboard-service';
     MatFormFieldModule,
     MatSelectModule,
     MatTooltipModule,
-    MatCardModule
+    MatCardModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   providers: [
     JobService,

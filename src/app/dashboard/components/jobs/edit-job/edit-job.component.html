@@ -61,14 +61,10 @@
             [(ngModel)]="service.formData.salary">
     </mat-form-field>
 
-    <mat-form-field class="form-full-width">
-        <input
-            matInput
-            placeholder="Closing Date"
-            name="final_date"
-            required
-            #final_date="ngModel"
-            [(ngModel)]="service.formData.final_date">
+      <mat-form-field class="form-full-width">
+        <input matInput [matDatepicker]="myDatepicker" name="final_date" #final_date="ngModel" required [(ngModel)]="service.formData.final_date" placeholder="Date of Join">
+        <mat-datepicker-toggle matSuffix [for]="myDatepicker"></mat-datepicker-toggle>
+        <mat-datepicker #myDatepicker></mat-datepicker>
       </mat-form-field>
 
     <mat-form-field class="form-full-width">

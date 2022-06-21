@@ -23,6 +23,7 @@ export class DashboardComponent implements OnInit {
   refreashData() {
     this.service.getData().subscribe(res => {
       this.dataList = res
+      console.log(this.dataList)
       this.loaded = true
     })
   }
