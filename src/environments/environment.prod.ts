@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  BASE_API_URL: "http://18.196.102.198:3001"
+  BASE_API_URL: "https://clear-sandals.cyclic.app/"
 };
