@@ -1,3 +1,3 @@
 # SimplyHR
 
-[Live](http://18.194.208.41/)
+[Live](https://simply-hr.vercel.app/)
